@@ -14,18 +14,14 @@ if [ -d "$dir" ]; then #Valid directory given
         tempf="$(mktemp)" #Create a temporary file
         while IFS= read -r line || [[ -n "$line" ]]; do #IFS=Internal File Seperator, reads file line by line, without removing whitespace
             clean_line="$(echo "$line" | sed 's/^[[:space:]]*//;s/[[:space:]]*$//')" #clean line created by removing whitespaces
-            [[ -z "$clean_line" || "$clean_line" == \#* ]] #Skips comments and empty line
-            if [[ "$clean_line" =~ ^([A-Za-z_][A-Za-z0-9_]*)=([^\"]\S*)$ ]]; then #Check for correct format eg. VARIABLE=VALUE
+            if [[ "$clean_line" =~ ^([A-Za-z_][A-Za-z0-9_]*)=([^[:space:]#\"]+)([[:space:]]*#.*)?$ ]]; then #Check for correct format eg. VARIABLE=VALUE
                 var_name="${BASH_REMATCH[1]}" #Get variable name
                 var_value="${BASH_REMATCH[2]}" #Get value
                 if [[ "$var_name" =~ $FORBIDDEN_KEYS ]]; then # check if variable is in forbidden keys
                     continue
                 fi
 
-                if [[ "$var_value" == *\"* || "$var_value" == *" "* ]]; then #check if format is correct
-                    continue
-                fi
-                echo "$var_name=$var_value" >> "$tempf" #store sanitized format in temporary file
+                echo "$clean_line" >> "$tempf"
             fi
         done < "$fpath" #file path given
         mv "$tempf" "$fpath.sanitized" #rename temporary file
