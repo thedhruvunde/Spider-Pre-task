@@ -1,0 +1,24 @@
+- File: ./samprepo/exp1/env1.env
+- User: uid=1000(hyphen) gid=1000(hyphen) groups=1000(hyphen),24(cdrom),25(floppy),27(sudo),29(audio),30(dip),44(video),46(plugdev),100(users),106(netdev),114(bluetooth),117(lpadmin),120(scanner)
+- Valid Lines: 3
+- Invalid Lines: 5
+- Rejected Lines:
+    - PASSWORD = secret123 # Space around equals signSERVER-NAME=web01 # Hyphen in variable nameexport PATH=$PATH:/tmp # Modifies PATH variableUSER_EMAIL="admin@example" # Unnecessary quotesLOG_LEVEL= info # Space after equals sign
+- File: ./samprepo/exp2/env2.env
+- User: uid=1000(hyphen) gid=1000(hyphen) groups=1000(hyphen),24(cdrom),25(floppy),27(sudo),29(audio),30(dip),44(video),46(plugdev),100(users),106(netdev),114(bluetooth),117(lpadmin),120(scanner)
+- Valid Lines: 3
+- Invalid Lines: 5
+- Rejected Lines:
+    - PASSWORD = secret123 # Space around equals signSERVER-NAME=web01 # Hyphen in variable nameexport PATH=$PATH:/tmp # Modifies PATH variableUSER_EMAIL="admin@example" # Unnecessary quotesLOG_LEVEL= info # Space after equals sign
+- File: ./samprepo/exp3/env3.env
+- User: uid=1000(hyphen) gid=1000(hyphen) groups=1000(hyphen),24(cdrom),25(floppy),27(sudo),29(audio),30(dip),44(video),46(plugdev),100(users),106(netdev),114(bluetooth),117(lpadmin),120(scanner)
+- Valid Lines: 3
+- Invalid Lines: 5
+- Rejected Lines:
+    - PASSWORD = secret123 # Space around equals signSERVER-NAME=web01 # Hyphen in variable nameexport PATH=$PATH:/tmp # Modifies PATH variableUSER_EMAIL="admin@example" # Unnecessary quotesLOG_LEVEL= info # Space after equals sign
+- File: ./samprepo/exp0/env0.env
+- User: uid=1000(hyphen) gid=1000(hyphen) groups=1000(hyphen),24(cdrom),25(floppy),27(sudo),29(audio),30(dip),44(video),46(plugdev),100(users),106(netdev),114(bluetooth),117(lpadmin),120(scanner)
+- Valid Lines: 3
+- Invalid Lines: 5
+- Rejected Lines:
+    - PASSWORD = secret123 # Space around equals signSERVER-NAME=web01 # Hyphen in variable nameexport PATH=$PATH:/tmp # Modifies PATH variableUSER_EMAIL="admin@example" # Unnecessary quotesLOG_LEVEL= info # Space after equals sign
